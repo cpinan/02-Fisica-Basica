@@ -6,6 +6,7 @@ var Example = function()
 	var ball;
 	var poder;
 
+	// Variables para manejar velocidad en X y Y, la fricción y la gravedad
 	var xspeed, yspeed;
 	var friccion;
 	var gravedad;
@@ -19,6 +20,7 @@ var Example = function()
 			y: 100
 		};
 
+		// Iniciamos los valores.
 		poder = 0.3;
 
 		xspeed = 0;
@@ -57,6 +59,18 @@ var Example = function()
 
 		if(KEY_STATES.RIGHT)
 			xspeed += poder;
+
+		/*
+		Ahora hemos dividido, ya no aplicamos la velocidad
+		directamente al X,Y de la pelota sino a nuestra variable velocidad
+		A la cual le multiplicamos la fricción al eje X
+		Sino te acuerdas que es fricción te recomiendo leer:
+		http://www.aulafacil.com/curso-fisica-movimiento/curso/Lecc-26.htm
+		Y la gravedad que como sabemos, la gravedad siempre nos empuja al piso.
+		Por eso le sumamos al yspeed. Para que el objeto vaya
+		hacia abajo.
+		Si no estas seguro como funciona esto, revisa el artículo 1 de esta serie.
+		*/
 
 		xspeed *= friccion;
 		yspeed += gravedad;
